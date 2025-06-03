@@ -2,101 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me - Sravani Gorinta</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      /* Removed overflow: hidden to allow scrolling */
-      font-family: Arial, sans-serif;
-      background: url('icons/about-background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .back-home-link {
-      position: fixed; /* Changed absolute to fixed to stay visible while scrolling */
-      top: 2vh;
-      left: 2vw;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 0.8vh 1.2vw;
-      border-radius: 0.5vw;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.5vw;
-      z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-home-link:hover {
-      background: rgba(0, 0, 0, 0.85);
-    }
-
-    .content {
-      padding: 6vh 6vw;
-      width: 100%;
-      /* Removed height and overflow constraints to allow content to expand */
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 2vh;
-      font-size: 4vw;
-      color: #333;
-    }
-
-    p, li {
-      font-size: 2vw;
-      line-height: 1.5;
-      margin-bottom: 1.5vh;
-    }
-
-    ul {
-      margin-left: 3vw;
-    }
-
-    strong {
-      color: #005f8d;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 6vw; }
-      p, li { font-size: 3.5vw; }
-      .back-home-link { font-size: 3vw; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit Navigation</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a href="main.html" class="back-home-link">← Back to Home</a>
+  <h1 class="portfolio-title">My Portfolio</h1>
+  <div class="orbit-container">
+    <div class="foreground-circle"></div>
+    <div class="center-circle"></div>
+    <div class="avatar">
+      <img src="icons/foreground.png" alt="Foreground image" />
+    </div>
 
-  <div class="content">
-    <h1>About Me</h1>
+    <!-- Orbiting Icon Circles with Tooltips -->
+    <div class="orbit-wrapper" style="transform: rotate(0deg); animation-delay: 0s; --initial-rotate: 0deg;">
+      <a href="certificates.html" class="icon-circle">
+        <img src="icons/certi.webp" alt="Certificates" />
+        <span class="tooltip">Certificates</span>
+      </a>
+    </div>
 
-    <p>Hello! I'm <strong>Sravani Gorinta</strong>, a passionate and dedicated Computer Science student currently pursuing my B.Tech in CSE (2023–2026) at BVRIT Hyderabad College of Engineering for Women, where I’ve maintained a CGPA of <strong>8.93</strong>. I also hold a diploma in Computer Science from Smt Durgabhai Deshmukh Government Women’s Technical and Training Institute, graduating with a CGPA of <strong>9.86</strong>.</p>
+    <div class="orbit-wrapper" style="transform: rotate(45deg); animation-delay: -2.5s; --initial-rotate: -45deg;">
+      <a href="https://github.com/SravaniGorinta" class="icon-circle">
+        <img src="icons/github.jpg" alt="GitHub" />
+        <span class="tooltip">GitHub</span>
+      </a>
+    </div>
 
-    <p>I have a strong interest in <strong>Web Development</strong> and <strong>Cloud Security</strong>, and I’m always excited to explore new technologies. My technical toolbox includes <strong>C, C++, Java, HTML, CSS, and Python</strong>, along with tools such as <strong>VS Code, GitHub, Android Studio, and MySQL</strong>.</p>
+    <div class="orbit-wrapper" style="transform: rotate(90deg); animation-delay: -5s; --initial-rotate: -90deg;">
+      <a href="education.html" class="icon-circle">
+        <img src="icons/education.png" alt="Education" />
+        <span class="tooltip">Education</span>
+      </a>
+    </div>
 
-    <p>I’m currently expanding my skills in <strong>computer vision</strong>, <strong>machine learning</strong>, and <strong>data structures</strong>. Here are a few personal projects I’ve worked on:</p>
+    <div class="orbit-wrapper" style="transform: rotate(135deg); animation-delay: -7.5s; --initial-rotate: -135deg;">
+      <a href="projects.html" class="icon-circle">
+        <img src="icons/projects.png" alt="Projects" />
+        <span class="tooltip">Projects</span>
+      </a>
+    </div>
 
-    <ul>
-      <li><strong>Air Scribbling using OpenCV</strong> – A real-time hand gesture drawing application using computer vision.</li>
-      <li><strong>Restaurant Management System</strong> – An efficient order tracking system using data structures.</li>
-      <li><strong>News Category Classification</strong> – Automating news classification using NLP and machine learning.</li>
-    </ul>
+    <div class="orbit-wrapper" style="transform: rotate(180deg); animation-delay: -10s; --initial-rotate: -180deg;">
+      <a href="contact.html" class="icon-circle">
+        <img src="icons/contact.png" alt="Contact" />
+        <span class="tooltip">Contact</span>
+      </a>
+    </div>
 
-    <p>I’ve also completed <strong>60+ Salesforce Trailhead badges</strong>, solved <strong>500+ coding problems</strong>, and earned certifications in <strong>Java (HackerRank)</strong> and <strong>GitHub (Great Learning)</strong>.</p>
+    <div class="orbit-wrapper" style="transform: rotate(225deg); animation-delay: -12.5s; --initial-rotate: -225deg;">
+      <a href="websites.html" class="icon-circle">
+        <img src="icons/websites.jpg" alt="Websites" />
+        <span class="tooltip">Websites</span>
+      </a>
+    </div>
 
-    <p>Outside the tech world, I enjoy <strong>music</strong>, playing <strong>games</strong>, and expressing myself through <strong>drawing</strong>. I'm always eager to take on new challenges, collaborate with others, and grow both personally and professionally.</p>
+    <div class="orbit-wrapper" style="transform: rotate(270deg); animation-delay: -15s; --initial-rotate: -270deg;">
+      <a href="https://www.linkedin.com/in/sravani-gorinta-5374a62a5/" class="icon-circle">
+        <img src="icons/linkedin.jpg" alt="LinkedIn" />
+        <span class="tooltip">LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(315deg); animation-delay: -17.5s; --initial-rotate: -315deg;">
+      <a href="about.html" class="icon-circle">
+        <img src="icons/about.jpg" alt="About" />
+        <span class="tooltip">About</span>
+      </a>
+    </div>
   </div>
+  <script>
+    const orbitContainer = document.querySelector('.orbit-container');
+    const iconCircles = document.querySelectorAll('.icon-circle');
+
+    iconCircles.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        orbitContainer.classList.add('paused');
+      });
+      icon.addEventListener('mouseleave', () => {
+        orbitContainer.classList.remove('paused');
+      });
+    });
+  </script>
 </body>
 </html>
