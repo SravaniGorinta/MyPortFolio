@@ -23,7 +23,7 @@ Images:
 ![image](https://github.com/user-attachments/assets/79794227-d176-40dc-9fe4-227c46755530)
 ![image](https://github.com/user-attachments/assets/7caea1a9-026e-4691-afcc-ebd94d9e5893)
 ![image](https://github.com/user-attachments/assets/98c6eb8e-811f-49de-8d87-5ab0a826b7da)
-about:![image](https://github.com/user-attachments/assets/8348c057-dd8b-474c-a097-2f0bbe6a0b8b)
+
 
 
 
