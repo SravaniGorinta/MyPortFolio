@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to override or extend Tailwind */
+        html, body {
+            height: 100vh; /* Make html and body take up full viewport height */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent body from scrolling */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('icons/certif-back.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #141615; /* Dark text for contrast */
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+            align-items: center;
+        }
+
+        /* Title styling */
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            background-color: transparent; /* Removed background-color as requested */
+            box-shadow: 0 0 10px rgba(243, 255, 255, 0.5); /* Keep shadow for visual depth */
+            position: sticky; /* Still sticky at the top */
+            top: 0;
+            z-index: 10; /* Ensure title stays on top */
+            flex-shrink: 0; /* Prevent title from shrinking */
+        }
+
+        /* Back to Portfolio link */
+        .back-link {
+            background: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
+            color: white;
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 20; /* Ensure link is above title */
+        }
+
+        .back-link:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        /* Individual certificate card link wrapper */
+        .certificate-link {
+            display: block; /* Make the entire link clickable */
+            text-decoration: none; /* Remove underline from link */
+            color: inherit; /* Inherit text color */
+            cursor: pointer; /* Indicate it's clickable */
+        }
+
+        /* Individual certificate card */
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.9); /* Slightly more opaque white for cards */
+            border: 1px solid #d1d5db; /* Light gray border */
+            border-left: 6px solid #a8cfcf; /* Teal accent border, slightly thicker */
+            /* Enhanced transition for more creative effect */
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out, background 0.4s ease-out;
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column;
+            height: 100%; /* Ensure cards fill their grid cell */
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-15px) scale(1.03); /* More pronounced lift and zoom */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Stronger, diffused shadow */
+            border-color: #5d9a9a; /* Even darker teal border on hover */
+            background: rgba(255, 255, 255, 0.98); /* Slightly less opaque on hover */
+        }
+
+        .certificate-card h3 {
+            color: #2c3e50; /* Darker heading color */
+        }
+
+        .certificate-card p {
+            color: #555; /* Slightly darker paragraph color */
+        }
+
+        .certificate-card .issuer {
+            font-weight: 500; /* Medium font weight for issuer */
+        }
+
+        .certificate-card .date {
+            font-size: 0.9rem; /* Slightly smaller date font */
+            color: #777;
+        }
+
+        .certificate-card .description {
+            flex-grow: 1; /* Allow description to take available space */
+            margin-bottom: 1rem; /* Space before button */
+        }
+
+        .download-button {
+            background-color: #a8cfcf; /* Teal button background */
+            color: #2c3e50; /* Dark text for button */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            align-self: flex-start; /* Align button to start */
+        }
+
+        .download-button:hover {
+            background-color: #7ab8b8; /* Darker teal on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Certificates Grid - now takes remaining space and can scroll internally */
+        .certificates-grid {
+            flex-grow: 1; /* Allow grid to take up remaining vertical space */
+            overflow-y: auto; /* Enable vertical scrolling within the grid if content overflows */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            padding-top: 20px; /* Add padding to separate from title */
+            padding-bottom: 20px; /* Add padding at the bottom for scroll comfort */
+            margin-top: 0; /* Remove fixed margin-top to allow flex-grow to work */
+            display: grid; /* Explicitly set grid display */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+            gap: 2rem; /* Increased gap for better spacing */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+                padding: 8px 15px;
+            }
+            .back-link {
+                top: 15px;
+                left: 15px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            .certificates-grid {
+                padding: 15px; /* Adjust padding for smaller screens */
+                gap: 1.5rem; /* Adjusted gap */
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .certificate-card h3 {
+                font-size: 1.3rem;
+            }
+            .certificate-card p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.8rem;
+                padding: 6px 10px;
+            }
+            .back-link {
+                top: 10px;
+                left: 10px;
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            .certificates-grid {
+                padding: 10px; /* Adjust padding for smaller screens */
+                gap: 1rem; /* Adjusted gap */
+            }
+            .certificate-card {
+                padding: 10px;
+            }
+            .certificate-card h3 {
+                font-size: 1.2rem;
+            }
+            .certificate-card p {
+                font-size: 0.9rem;
+            }
+            .download-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center">
+    <a href="main.html" class="back-link fixed top-5 left-5 px-4 py-2 rounded-md text-base font-medium shadow-lg" aria-label="Back to Home">← Back to Home</a>
+
+    <h1 class="page-title w-full text-center py-4 text-2xl md:text-3xl lg:text-4xl font-bold">My Certificates</h1>
+
+    <div class="certificates-grid max-w-4xl w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div class="certificate-card p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">Java Basic</h3>
+            <p class="issuer text-gray-600 italic mb-1">Issued by: HackerRank</p>
+            <p class="date text-gray-500 mb-3">Date: 2024</p>
+            <p class="description text-gray-700 mb-4">Demonstrated foundational knowledge and practical skills in Java programming through HackerRank's assessment.</p>
+            <a href="https://drive.google.com/file/d/1Dp3YFvaVR7eY02LEZNqEzQmpp7SdQ55R/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="download-button">View Certificate</a>
+        </div>
+
+        <div class="certificate-card p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">GitHub</h3>
+            <p class="issuer text-gray-600 italic mb-1">Issued by: Great Learning</p>
+            <p class="date text-gray-500 mb-3">Date: 2024</p>
+            <p class="description text-gray-700 mb-4">Acquired proficiency in Git version control and GitHub platform for collaborative software development.</p>
+            <a href="https://drive.google.com/file/d/1_PeJlEe9j8u17Lx61UTQTBDz0NexD0v0/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="download-button">View Certificate</a>
+        </div>
+
+        <div class="certificate-card p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">Introduction to IOT</h3>
+            <p class="issuer text-gray-600 italic mb-1">Issued by: SimpliLearn</p>
+            <p class="date text-gray-500 mb-3">Date: 2025</p>
+            <p class="description text-gray-700 mb-4">Mastered the fundamental concepts of the Internet of Things, including device connectivity, data collection, and basic IoT applications.</p>
+            <a href="https://drive.google.com/file/d/1HV8HsrtsLwMsVtexIaMIA9FwgjaIit8K/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="download-button">View Certificate</a>
+        </div>
+
+        <div class="certificate-card p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">Basics of Computer Networking</h3>
+            <p class="issuer text-gray-600 italic mb-1">Issued by: Great Learning</p>
+            <p class="date text-gray-500 mb-3">Date: 2024</p>
+            <p class="description text-gray-700 mb-4">Gained fundamental understanding of computer networking concepts, protocols, and architectures.</p>
+            <a href="https://drive.google.com/file/d/12ypS0-Wf8nNeFECX3XRUhLHuU5wW5U87/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="download-button">View Certificate</a>
+        </div>
+
+        </div>
+</body>
+</html>

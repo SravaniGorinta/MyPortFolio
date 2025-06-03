@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbit Navigation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="portfolio-title">My Portfolio</h1>
+  <div class="orbit-container">
+    <div class="foreground-circle"></div>
+    <div class="center-circle"></div>
+    <div class="avatar">
+      <img src="icons/foreground.png" alt="Foreground image" />
+    </div>
+
+    <!-- Orbiting Icon Circles with Tooltips -->
+    <div class="orbit-wrapper" style="transform: rotate(0deg); animation-delay: 0s; --initial-rotate: 0deg;">
+      <a href="certificates.html" class="icon-circle">
+        <img src="icons/certi.webp" alt="Certificates" />
+        <span class="tooltip">Certificates</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(45deg); animation-delay: -2.5s; --initial-rotate: -45deg;">
+      <a href="https://github.com/SravaniGorinta" class="icon-circle">
+        <img src="icons/github.jpg" alt="GitHub" />
+        <span class="tooltip">GitHub</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(90deg); animation-delay: -5s; --initial-rotate: -90deg;">
+      <a href="education.html" class="icon-circle">
+        <img src="icons/education.png" alt="Education" />
+        <span class="tooltip">Education</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(135deg); animation-delay: -7.5s; --initial-rotate: -135deg;">
+      <a href="projects.html" class="icon-circle">
+        <img src="icons/projects.png" alt="Projects" />
+        <span class="tooltip">Projects</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(180deg); animation-delay: -10s; --initial-rotate: -180deg;">
+      <a href="contact.html" class="icon-circle">
+        <img src="icons/contact.png" alt="Contact" />
+        <span class="tooltip">Contact</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(225deg); animation-delay: -12.5s; --initial-rotate: -225deg;">
+      <a href="websites.html" class="icon-circle">
+        <img src="icons/websites.jpg" alt="Websites" />
+        <span class="tooltip">Websites</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(270deg); animation-delay: -15s; --initial-rotate: -270deg;">
+      <a href="https://www.linkedin.com/in/sravani-gorinta-5374a62a5/" class="icon-circle">
+        <img src="icons/linkedin.jpg" alt="LinkedIn" />
+        <span class="tooltip">LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="orbit-wrapper" style="transform: rotate(315deg); animation-delay: -17.5s; --initial-rotate: -315deg;">
+      <a href="about.html" class="icon-circle">
+        <img src="icons/about.jpg" alt="About" />
+        <span class="tooltip">About</span>
+      </a>
+    </div>
+  </div>
+  <script>
+    const orbitContainer = document.querySelector('.orbit-container');
+    const iconCircles = document.querySelectorAll('.icon-circle');
+
+    iconCircles.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        orbitContainer.classList.add('paused');
+      });
+      icon.addEventListener('mouseleave', () => {
+        orbitContainer.classList.remove('paused');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Education</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Define CSS variables for consistent styling */
+            --primary-blue: #0077b5; /* LinkedIn Blue */
+            --dark-blue: #005f8d;
+            --text-dark: #333;
+            --text-medium: #555;
+            --bg-light: #f0f2f5;
+            --white-transparent: rgba(255, 255, 255, 0.98);
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-image: url('icons/educ-back.jpeg'); /* Your specified background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 10px; /* Reduced padding-top to move content up */
+            padding-bottom: 20px;
+            box-sizing: border-box;
+
+            color: var(--text-dark);
+            text-align: center;
+            background-color: var(--bg-light);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .education-header {
+            color: var(--primary-blue);
+            margin-bottom: 25px; /* Space below header */
+            font-size: 2.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            /* Removed background, padding, border-radius, box-shadow for plain text header */
+            z-index: 10;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90%;
+            flex-shrink: 0;
+        }
+
+        .education-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 550px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .education-box {
+            background-color: var(--white-transparent);
+            padding: 18px 22px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px var(--shadow-medium);
+            text-align: left;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            width: 100%;
+            margin-bottom: 18px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .education-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-box h3 {
+            color: var(--primary-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        .education-box p {
+            margin: 0 0 5px 0;
+            color: var(--text-dark);
+            font-size: 0.9em;
+            line-height: 1.3;
+        }
+
+        .education-box p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .education-box .details-group {
+            margin-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 6px;
+            font-size: 0.9em;
+            display: flex; /* Use flexbox for horizontal alignment */
+            justify-content: space-between; /* Pushes content to the ends */
+            align-items: center; /* Vertically centers them */
+        }
+
+        /* Span styles within details-group are no longer needed for spacing, as justify-content handles it */
+        .education-box .details-group span {
+            /* Removed previous margin-right as justify-content handles spacing */
+            display: inline-block; /* Keep as inline-block for structural integrity if needed */
+        }
+
+        .education-box .cgpa {
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        /* Back to Home Link Styling (consistent) */
+        .back-home-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 2px 8px var(--shadow-medium);
+            z-index: 1000;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1em;
+        }
+
+        .back-home-link:hover {
+            background: rgba(0,0,0,0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .education-header {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            .education-wrapper {
+                max-width: 95%;
+                padding: 0 5px;
+            }
+            .education-box {
+                padding: 15px 20px;
+                margin-bottom: 15px;
+            }
+            .education-box h3 {
+                font-size: 1.3em;
+            }
+            .education-box p {
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                padding-top: 50px; /* Adjust top padding for back button */
+            }
+            .education-header {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+            .back-home-link {
+                top: 10px;
+                left: 10px;
+                padding: 7px 12px;
+                font-size: 0.8em;
+            }
+            .education-wrapper {
+                max-width: 100%;
+            }
+            .education-box {
+                padding: 12px 18px;
+                margin-bottom: 12px;
+            }
+            .education-box h3 {
+                font-size: 1.1em;
+                margin-bottom: 4px;
+            }
+            .education-box p {
+                font-size: 0.8em;
+                margin-bottom: 3px;
+            }
+            .education-box .details-group {
+                margin-top: 8px;
+                padding-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="main.html" class="back-home-link">← Back to Home</a>
+
+<h1 class="education-header" style="color: #000000;">My Education</h1>
+
+    <div class="education-wrapper">
+        <div class="education-box">
+            <h3>Bachelor of Technology (CSE)</h3>
+            <p><strong>Institution:</strong> BVRIT Hyderabad College of Engineering for Women</p>
+            <p><strong>Department:</strong> Computer Science and Engineering</p>
+            <div class="details-group">
+                <p>
+                    <span class="cgpa"><strong>CGPA:</strong> 8.93</span> <span><strong>&nbsp;&nbsp;&nbsp;&nbsp;Period:</strong> 2023-2026</span> </p>
+            </div>
+        </div>
+
+        <div class="education-box">
+            <h3>Diploma in Computer Science and Engineering</h3>
+            <p><strong>Institution:</strong> Smt Durgabhai Deshmukh Government Women's Technical and Training Institute</p>
+            <p><strong>Department:</strong> Computer Science and Engineering</p>
+            <div class="details-group">
+                <p>
+                    <span class="cgpa"><strong>CGPA:</strong> 9.86</span> <span><strong>&nbsp;&nbsp;&nbsp;&nbsp;Period:</strong> 2020-2023</span> </p>
+            </div>
+        </div>
+
+        <div class="education-box">
+            <h3>Secondary School Certificate (SSC)</h3>
+            <p><strong>Institution:</strong> Newton Grammar High School</p>
+            <div class="details-group">
+                <p>
+                    <span class="cgpa"><strong>CGPA:</strong> 10.0</span> <span><strong>&nbsp;&nbsp;&nbsp;&nbsp;Period:</strong> 2020</span> </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
